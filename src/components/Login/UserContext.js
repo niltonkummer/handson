@@ -1,23 +1,32 @@
 import React, { Component } from 'react';
-import {  View, Text, Image, StyleSheet, Button } from 'react-native';
+import {  View, Text, Image, StyleSheet } from 'react-native';
 
-
+// Colors
+import { colors } from '../../styles/metrics'
+import Button from '../Button/Button';
 
 export default class UserContext extends Component {
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.logoContainer}>
-            <Image />
-            <Text> teste</Text>
+            <Image style={ styles.logo } source={ require('../../images/Logo220_50px.png') } />
+            <View style={ styles.textContent }>
+                <Text style={ [styles.text, styles.textTitle ] }>Seja bem-vindo!</Text>
+                <Text style={ styles.text }>Escolha o perfil que deseja usar.</Text>
+            </View>
         </View>
         <View style={styles.buttonsContainer}>
             <View  style={styles.button} >
-                <Button color='#FF0000' title='Pais' />
+                <Button 
+                    image={ require('../../images/Botao_pais_25_36px.png') } 
+                    type='bigger' 
+                    color={ colors.primary } 
+                    style={ styles.button }>Pais</Button>
             </View>
             <View style={styles.button}>
-                <Button  title='Filhos' />
-            </View>
+                <Button image={ require('../../images/Botao_filhos_25_36px.png') } type='bigger' color={ colors.secundary } style={ styles.button } >Filhos</Button>
+            </View>            
         </View>
 
       </View>
@@ -32,15 +41,29 @@ const styles = StyleSheet.create({
     },
     logoContainer: {
         flex:1,
-        justifyContent: 'center',
+        justifyContent: 'center', 
+        alignItems: 'center',
+        
+    },
+    logo: {
         alignSelf: 'center',
     },
     buttonsContainer: {
-        flex:3,
+        flex:1,
         justifyContent: 'center',
-        paddingHorizontal: 100,
+        paddingHorizontal: 100,        
     },
-    button: {        
-        marginTop:30,        
+    textContent: {
+        marginTop: 53
+    },
+    text:{
+        alignSelf: 'center',
+    },
+    textTitle: {
+        fontSize: 18,
+        fontWeight: 'bold',
+    },
+    button: {                
+        paddingVertical: 30
     }
 })
