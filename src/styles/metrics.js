@@ -1,3 +1,3 @@
 import colors from './colors';
-import sizes from './sizes';
-export { colors, sizes };
+import fonts from './fonts';
+export { colors, fonts };

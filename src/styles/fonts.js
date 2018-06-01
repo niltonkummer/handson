@@ -1,4 +1,4 @@
-const sizes = {
+export default {
     bigger:32,
     big:20,
     medium: 16,
@@ -6,5 +6,3 @@ const sizes = {
     small: 12,
     smaller: 10,     
 }
-
-export default sizes;

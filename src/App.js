@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {  View, Text } from 'react-native';
+import {  View, Text, Easing, Animated } from 'react-native';
 
 // Components
 /*
@@ -9,16 +9,22 @@ import {  View, Text } from 'react-native';
     Cadastro de filhos
     
 */
-import LoginPage from './components/Login/LoginPage';
-import Main from './components/Main/Main';
-import UserContext from './components/Login/UserContext'
+import MainPage from './screens/Main/MainPage';
+import LoginPage from './screens/Login/LoginPage';
+import UserContextPage from './screens/Login/UserContextPage'
+
+import Buttons from './screens/Examples/ButtonsPage';
+import FormPage from './screens/Examples/FormPage';
+
+import { colors, fonts } from './styles/metrics';
 
 // Navigation
-import { StackNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation';
 
-export default StackNavigator({
+
+export default createStackNavigator({
     'UserContext': {
-        screen: UserContext,
+        screen: UserContextPage,
         navigationOptions: {
             header: null,
         }
@@ -26,14 +32,29 @@ export default StackNavigator({
     'Login': {
         screen: LoginPage,
         navigationOptions: {
-            header: null,
+            title: 'Login Pais',            
         }
     },
+    'Examples': {
+        screen: FormPage,
+        navigationOptions: {            
+        }
+    },
+   
+   
     'Main': {
-        screen: Main,
+        screen: MainPage,
     }
 }, {
     navigationOptions: {
-        
-    }
+        headerTintColor: 'white',
+		headerStyle: {
+			backgroundColor: colors.primary,
+		},
+		headerTitleStyle: {
+			color: 'white',
+			fontSize: fonts.big,
+			alignSelf: 'center',
+        },       
+    },    
 })
