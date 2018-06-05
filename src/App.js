@@ -11,7 +11,10 @@ import {  View, Text, Easing, Animated } from 'react-native';
 */
 import MainPage from './screens/Main/MainPage';
 import LoginPage from './screens/Login/LoginPage';
-import UserContextPage from './screens/Login/UserContextPage'
+import UserContextPage from './screens/Login/UserContextPage';
+
+// Tarefas
+import CriarTarefaPage from './screens/Tarefas/CriarTarefaPage';
 
 import Buttons from './screens/Examples/ButtonsPage';
 import FormPage from './screens/Examples/FormPage';
@@ -23,6 +26,12 @@ import { createStackNavigator } from 'react-navigation';
 
 
 export default createStackNavigator({
+    'CriarTarefa': {
+        screen: CriarTarefaPage,
+        navigationOptions: {
+            title: 'Criar Tarefa',
+        }
+    },
     'UserContext': {
         screen: UserContextPage,
         navigationOptions: {
