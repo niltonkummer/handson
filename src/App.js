@@ -13,6 +13,8 @@ import MainPage from './screens/Main/MainPage';
 import LoginPage from './screens/Login/LoginPage';
 import UserContextPage from './screens/Login/UserContextPage';
 
+import HorizontalPage from './screens/Examples/HorizontalPage';
+
 // Tarefas
 import CriarTarefaPage from './screens/Tarefas/CriarTarefaPage';
 
@@ -26,12 +28,20 @@ import { createStackNavigator } from 'react-navigation';
 
 
 export default createStackNavigator({
+    
     'CriarTarefa': {
         screen: CriarTarefaPage,
         navigationOptions: {
             title: 'Criar Tarefa',
         }
     },
+    'HorizontalPage': {
+        screen: HorizontalPage,
+        navigationOptions: {
+            title: 'Criar Tarefa',
+        }
+    },
+    
     'UserContext': {
         screen: UserContextPage,
         navigationOptions: {

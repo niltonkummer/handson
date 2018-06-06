@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Platform } from 'react-native';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 import colors from '../styles/colors';
@@ -9,23 +9,72 @@ class BoxItem extends Component {
         super(props);
         this.state = {};
     }
+    renderIcon() {
+        if (this.props.icon != '') return <Icon name={this.props.icon} size={30} color={colors.gray_darker}/>
+        return null
+    }
     render() {
-    return (      
-        <View style={styles.container}>
-            <Icon name="plus" size={30} color={colors.gray_darker}/>
-            <Text style={styles.text}>{this.props.children}</Text>
-        </View>      
-    );
+        return (      
+            <View style={styles.container}>
+                { this.renderIcon() }
+                <Text style={styles.text}>{this.props.children}</Text>
+            </View>      
+        );
   }
 }
 
 const styles = StyleSheet.create({
-    container: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        elevation: 4,
-        backgroundColor:'white',                
+    
+    row: {
         flexDirection: 'column',
+        alignItems: 'center',
+        backgroundColor: '#fff',
+        padding: 16,
+        width: 110,
+        height: 150,
+        marginHorizontal: 10,
+        borderRadius: 4,
+    
+    
+        ...Platform.select({
+          ios: {
+            shadowColor: 'rgba(0,0,0,0.2)',
+            shadowOpacity: 1,
+            shadowOffset: {height: 2, width: 2},
+            shadowRadius: 2,
+          },
+    
+          android: {
+            elevation: 4,
+            marginHorizontal: 30,
+          },
+        })
+      },
+    container: {
+        
+        flexDirection: 'column',
+        alignItems: 'center',
+        backgroundColor: '#fff',
+        padding: 16,
+        width: 80,
+        height: 80,
+        marginHorizontal: 10,
+        //borderRadius: 4,
+    
+    
+        ...Platform.select({
+          ios: {
+            shadowColor: 'rgba(0,0,0,0.2)',
+            shadowOpacity: 1,
+            shadowOffset: {height: 2, width: 2},
+            shadowRadius: 2,
+          },
+    
+          android: {
+            elevation: 2,
+            marginHorizontal: 10,
+          },
+        })
         
     },
     text: {        
